@@ -8,6 +8,7 @@
 #include <stdio.h>   /* printf */
 #include <stdlib.h>  /* malloc, free */
 #include <stdbool.h> /* bool, true, false */
+#include <assert.h>
 
 typedef struct node {
     int data;
