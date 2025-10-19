@@ -8,7 +8,7 @@
  * Taylor series for sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ...
  */
 
-#include "taylor_sine.h"
+#include "./include/taylor_sine.h"
 #include <stdbool.h>
 #include <assert.h>
 
@@ -19,10 +19,7 @@
  * Returns: approximation of sin(x)
  */
 double taylor_sine(double x, int n) {
-    // TODO: Implement the Taylor series approximation for sine
-    // Hint: The series is: x - x^3/3! + x^5/5! - x^7/7! + ...
-    // Use a loop to calculate n terms of the series
-    assert(n > 0);
+    assert(n > 0); //0 terms doesn't make sense.
 
     double result = x; // 1st term of tailor series is already x
     double numerator = result;
