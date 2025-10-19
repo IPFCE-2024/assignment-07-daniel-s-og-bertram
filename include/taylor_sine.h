@@ -9,5 +9,6 @@
  * - Include necessary header files
  * - Declare the taylor_sine function
  */
+double taylor_sine(double x, int n);
 
 #endif
