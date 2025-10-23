@@ -34,9 +34,9 @@ jobs:
         run: |
           echo "Compiling Exercise ${{ matrix.exercise }}: ${{ matrix.name }}"
           if [ "${{ matrix.exercise }}" -eq 1 ]; then
-            gcc -Iinclude -std=c11 -lm -o tests/test_exercise${{ matrix.exercise }} \
+            gcc -Iinclude -std=c11 -o tests/test_exercise${{ matrix.exercise }} \
               tests/test_exercise${{ matrix.exercise }}.c \
-              exercise${{ matrix.exercise }}.c
+              exercise${{ matrix.exercise }}.c -lm
           else
             gcc -Iinclude -std=c11 -o tests/test_exercise${{ matrix.exercise }} \
               tests/test_exercise${{ matrix.exercise }}.c \

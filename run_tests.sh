@@ -19,12 +19,13 @@ test_exercise() {
     
     # Determine compilation flags based on exercise
     local compile_flags="-Iinclude -std=c11"
+    local link_flags=""
     if [ "$exercise_num" -eq 1 ]; then
-        compile_flags="$compile_flags -lm"  # Add math library for exercise 1
+        link_flags="-lm"  # Add math library for exercise 1
     fi
     
     # Try to compile the test
-    if gcc $compile_flags -o "tests/test_exercise$exercise_num" "tests/test_exercise$exercise_num.c" "exercise$exercise_num.c" 2> "tests/test_output_exercise$exercise_num.txt"; then
+    if gcc $compile_flags -o "tests/test_exercise$exercise_num" "tests/test_exercise$exercise_num.c" "exercise$exercise_num.c" $link_flags 2> "tests/test_output_exercise$exercise_num.txt"; then
         # Run the test with timeout to prevent hanging
         timeout 10s "./tests/test_exercise$exercise_num" >> "tests/test_output_exercise$exercise_num.txt" 2>&1
         local exit_code=$?
